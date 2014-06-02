@@ -15,11 +15,17 @@
 
 mkdir /tmp/deb
 cd /tmp/deb
-curl -O https://s3.amazonaws.com/elasticmapreduce/samples/spark/install/spark_0.5.deb
+curl -O http://d3kbcqa49mib13.cloudfront.net/spark-1.0.0-bin-hadoop2.tgz
+curl -sSfL http://downloads.mesosphere.io/master/ubuntu/12.04/mesos_0.18.2_amd64.deb --output /tmp/mesos.deb
+
+curl -sSfL http://downloads.mesosphere.io/master/ubuntu/12.04/mesos-0.18.2-py2.7-linux-x86_64.egg --output /tmp/mesos.egg
 
 
-sudo dpkg -i spark_0.5.deb
-sudo dpkg -i /tmp/mesos_0.9.0-1_amd64.deb
+
+sudo dpkg -i spark-1.0.0-bin-hadoop2.tgz
+sudo dpkg -i /tmp/mesos.deb
+sudo easy_install /tmp/mesos.egg
+
 
 sudo ldconfig
 
